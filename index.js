@@ -1,4 +1,5 @@
-var map, panorama, sv, processSVData, placeLocation;
+var map, marker, panorama, sv, processSVData, placeLocation;
+var initPos = {lat: 37.869260, lng: -122.254811};
 function initMap() {
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
@@ -6,18 +7,20 @@ function initMap() {
       zoom: 8
     });
   //create marker for the map
-  var marker = new google.maps.Marker({
+  marker = new google.maps.Marker({
     map: map,
+    position: initPos,
     anchorPoint: new google.maps.Point(0, -29),
     animation: google.maps.Animation.DROP,
     draggable: true
   });
   //create panorama
   panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
-    position: {lat: 37.869260, lng: -122.254811},
+    position: initPos,
     pov: {heading: 165, pitch: 0},
     motionTrackingControlOptions: {
-      position: google.maps.ControlPosition.LEFT_BOTTOM
+      motionTracking: false,
+      motionTrackingControl: false
     }
   });
 
@@ -32,6 +35,13 @@ function initMap() {
         pitch: 0
       });
       panorama.setVisible(true);
+      var lat = data.location.latLng.lat();
+      var lng = data.location.latLng.lng();
+      var mapLocation = {lat: lat, lng: lng};
+      map.setCenter(mapLocation);
+      map.setZoom(16);
+      marker.setPosition(mapLocation);
+      marker.setVisible(true);
     } else {
       console.error('Street View data not found for this location.');
     }
@@ -52,15 +62,7 @@ function initMap() {
       return;
     }
     // If the place has a geometry, then present it on a map.
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-      sv.getPanorama({location: placeLocation, radius: 50}, processSVData);
-      map.setCenter(place.geometry.location);
-      map.setZoom(15);
-    } else {
-    }
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
+    sv.getPanorama({location: placeLocation, radius: 50}, processSVData);
   });
 
   marker.addListener('mouseup', function(event) {
@@ -68,10 +70,10 @@ function initMap() {
     sv.getPanorama({location: event.latLng, radius: 50}, processSVData);
   });
 
-  panorama.addListener('pano_changed', function() {
-    var newLocation = panorama.getPosition()
-    map.setCenter(newLocation);
-    marker.setPosition(newLocation);
-    placeLocation = newLocation
-  });
+  // panorama.addListener('pano_changed', function() {
+  //   var newLocation = panorama.getPosition()
+  //   map.setCenter(newLocation);
+  //   marker.setPosition(newLocation);
+  //   placeLocation = newLocation
+  // });
 };
