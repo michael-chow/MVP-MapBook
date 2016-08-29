@@ -14,11 +14,11 @@
 <body>
 	<h1>My First Map</h1>
 	<form name="streetViewSearch">
-		<input name="searchLocation" placeholder="Search Street Views">
+		<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views">
 	</form>
-	<div id="map"></div>
 	<div id="pano"></div>
+	<div id="map"></div>
     <script src="index.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLnOmmYb49qkdP8R5OpZaMdPpIJ-WymDE&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLnOmmYb49qkdP8R5OpZaMdPpIJ-WymDE&callback=initMap&libraries=places" async defer></script>
 </body>
 </html>
