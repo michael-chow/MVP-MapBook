@@ -1,0 +1,88 @@
+html, body {
+	font-family: Arial;
+	height: 80%; 
+	margin: 0; 
+	padding: 0; 
+}
+
+h2 {
+	margin: 0;
+	color: white;
+}
+a {
+	color: white;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#header {
+	padding : 10px;
+	background-color: grey
+}
+
+
+#pano {
+
+	height: 600px; 
+	width: 75%;
+	margin: 15px;
+}
+
+#save-block {
+	position: absolute;
+	background-color: navy;
+	top: 50%;
+	width: 300px;
+	right: 25px;
+	border-width: 2px;
+	border-color: black;
+	height: 200px;
+}
+  	
+#map {
+ 	margin: 5px;
+ 	height: 300px;
+ 	width: 300px; 
+ 	position: absolute; 
+ 	right: 25px; 
+ 	overflow: scroll;
+ 	z-index: 100;
+ 	opacity: 0.8
+}
+
+#searchLocation {
+    display: block;
+    position: absolute;
+    top: 17px;
+    left: 200px;
+    margin: 0 auto;
+    width: 600px;
+    height: 29px;
+    color: white;
+    font-size: 14px;
+    text-indent: 10px;
+    background-color: silver;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+}
+
+#title {
+    display: block;
+    position: absolute;
+    top: 400px;
+    right: 25px;
+    margin: 0 auto;
+    width: 300px;
+    height: 29px;
+    color: grey;
+    font-size: 14px;
+    text-indent: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver;
+    z-index: 100;
+    opacity: 0.8
+}

@@ -1,9 +1,10 @@
 <div ng-controller="searchCtrl" ng-mousemove='listen()'>
-	<form name="streetViewSearch">
-		<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views" style="width:300px">
-		<input name="title" ng-model='title' style='width:300px'>
-	</form>
-	<button ng-click='save(title)'>Save</button>
-	<div id="pano"></div>
 	<div id="map"></div>
+	<div id="pano"></div>
+		<form name="streetViewSearch">
+			<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views"><br>
+			<input name="title" ng-model='title' id="title" placeholder="Title">
+		</form>
+		<button ng-click='save(title)'>Save</button>
+
 </div>

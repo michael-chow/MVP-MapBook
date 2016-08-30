@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MapBook</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="index.js"></script>
@@ -10,22 +11,13 @@
     <script src="/collection/collection.js"></script>
     <script src="/search/search.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLnOmmYb49qkdP8R5OpZaMdPpIJ-WymDE&callback=initMap&libraries=places" async defer></script>
-	<style type="text/css">
-  	html, body { height: 80%; margin: 0; padding: 0; }
-  	#pano { height: 400px; }
-  	#map { height: 300px; width: 300px; position: absolute; bottom: 0; overflow: scroll}
-	</style>
 </head>
 <body>
-	<h3>MapBook</h3>
-	<a href='#/search'>Search</a><a href='#/collection'>Collection</a>
+	<nav id='header'>
+	<h2>MapBook</h2>
+	<a href='#/search'>Search | </a>
+	<a href='#/collection'>Collection</a>
+	</nav>
 	<div ng-view></div>
-
-<!-- 	<form name="streetViewSearch">
-		<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views" style="width:300px">
-	</form>
-	<div id="pano"></div>
-	<div id="map"></div> -->
-
 </body>
 </html>
