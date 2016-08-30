@@ -1,7 +1,8 @@
 var map, marker, panorama, sv, processSVData;
 var placeLocation = {test: 'test'};
 var collection = [];
-var initPos = {lat: 37.869260, lng: -122.254811};
+var initPos = {lat: 37.4220917, lng: -122.082843};
+var pov = {heading: 250, pitch: 5}
 function initMap() {
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
@@ -21,7 +22,7 @@ function initMap() {
   //create panorama
   panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
     position: initPos,
-    pov: {heading: 165, pitch: 5},
+    pov: pov,
     linksControl: false,
     motionTracking: false,
     motionTrackingControl: false
@@ -35,10 +36,7 @@ function initMap() {
     if (status === 'OK') {
 
       panorama.setPano(data.location.pano);
-      panorama.setPov({
-        heading: 180,
-        pitch: 0
-      });
+      panorama.setPov(pov);
 
       panorama.setVisible(true);
       var lat = data.location.latLng.lat();
@@ -80,7 +78,7 @@ function initMap() {
 
 function loadMap (obj) {
   var map_load = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
+    zoom: 15,
     streetViewControl: false,
     mapTypeId: 'terrain'
   });
@@ -96,7 +94,7 @@ function loadMap (obj) {
   //create panorama
   panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
     position: obj,
-    pov: {heading: 165, pitch: 5},
+    pov: pov,
     linksControl: false,
     motionTracking: false,
     motionTrackingControl: false
