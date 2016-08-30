@@ -13,13 +13,12 @@
 	<style type="text/css">
   	html, body { height: 80%; margin: 0; padding: 0; }
   	#pano { height: 400px; }
-  	#map { height: 200px; width: 200px;}
+  	#map { height: 300px; width: 300px; position: absolute; bottom: 0; overflow: scroll}
 	</style>
 </head>
 <body>
-	<h1>My First Map</h1>
-	<a href='#/search'>Search</a>
-	<a href='#/collection'>Collection</a>
+	<h3>My First Map</h3>
+	<a href='#/search'>Search</a><a href='#/collection'>Collection</a>
 	<div ng-view></div>
 
 <!-- 	<form name="streetViewSearch">

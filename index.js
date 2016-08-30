@@ -5,9 +5,9 @@ var initPos = {lat: 37.869260, lng: -122.254811};
 function initMap() {
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
-    center: new google.maps.LatLng(37.869260, -122.254811),
     zoom: 16
   });
+  map.setCenter(initPos);
   //create marker for the map
   marker = new google.maps.Marker({
     map: map,
@@ -19,7 +19,7 @@ function initMap() {
   //create panorama
   panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
     position: initPos,
-    pov: {heading: 165, pitch: 0},
+    pov: {heading: 165, pitch: 10},
     linksControl: false,
     motionTracking: false,
     motionTrackingControl: false
@@ -92,7 +92,7 @@ function loadMap (obj) {
   //create panorama
   panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
     position: obj,
-    pov: {heading: 165, pitch: 0},
+    pov: {heading: 165, pitch: 10},
     linksControl: false,
     motionTracking: false,
     motionTrackingControl: false
