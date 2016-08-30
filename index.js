@@ -1,4 +1,6 @@
-var map, marker, panorama, sv, processSVData, placeLocation;
+var map, marker, panorama, sv, processSVData;
+var placeLocation = {hi: 'hi'};
+var collection = [];
 var initPos = {lat: 37.869260, lng: -122.254811};
 function initMap() {
   // Create a map object and specify the DOM element for display.
@@ -23,6 +25,8 @@ function initMap() {
     motionTrackingControl: false
   });
 
+  google.maps.StreetViewSource = 'outdoor';
+
   sv = new google.maps.StreetViewService();
 
   processSVData = function (data, status) {
@@ -33,11 +37,12 @@ function initMap() {
         heading: 180,
         pitch: 0
       });
-      
+
       panorama.setVisible(true);
       var lat = data.location.latLng.lat();
       var lng = data.location.latLng.lng();
-      placeLocation = {lat: lat, lng: lng};
+      var des = data.location.description
+      placeLocation = {lat: lat, lng: lng, des: des};
       console.log(placeLocation);
       map.setCenter(placeLocation);
       map.setZoom(16);
@@ -70,3 +75,26 @@ function initMap() {
   });
 
 };
+
+function loadMap (obj) {
+  var map_load = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16
+  });
+  map_load.setCenter(obj);
+  //create marker for the map
+  var marker_load = new google.maps.Marker({
+    map: map_load,
+    position: obj,
+    anchorPoint: new google.maps.Point(0, -29),
+    animation: google.maps.Animation.DROP,
+    draggable: true
+  });
+  //create panorama
+  panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), {
+    position: obj,
+    pov: {heading: 165, pitch: 0},
+    linksControl: false,
+    motionTracking: false,
+    motionTrackingControl: false
+  });
+}

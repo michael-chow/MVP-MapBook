@@ -1,15 +1,15 @@
-angular.module('app', ['search','ngRoute'])
+angular.module('app', ['search', 'collection', 'ngRoute'])
 	.config(function($routeProvider){
 		$routeProvider
 			.when('/search', {
         templateUrl: 'search/search.html',
         controller: 'searchCtrl'
       })
-      // .when('/collection', {
-      //   templateUrl: 'search/collection.html',
-      //   controller: 'collectionCtrl'
-      // })
+      .when('/collection', {
+        templateUrl: 'collection/collection.html',
+        controller: 'collectionCtrl'
+      })
       .otherwise({
         redirectTo: '/search'
       });
-	})
+	});

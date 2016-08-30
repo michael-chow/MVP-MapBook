@@ -5,23 +5,28 @@
 	<title>MapBook</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="index.js"></script>
+    <script src="app.js"></script>
+    <script src="/collection/collection.js"></script>
+    <script src="/search/search.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLnOmmYb49qkdP8R5OpZaMdPpIJ-WymDE&callback=initMap&libraries=places" async defer></script>
 	<style type="text/css">
   	html, body { height: 80%; margin: 0; padding: 0; }
-  	#pano { height: 300px; }
-  	#map { height: 300px; }
+  	#pano { height: 400px; }
+  	#map { height: 200px; width: 200px;}
 	</style>
 </head>
 <body>
 	<h1>My First Map</h1>
+	<a href='#/search'>Search</a>
+	<a href='#/collection'>Collection</a>
 	<div ng-view></div>
 
-	<form name="streetViewSearch">
+<!-- 	<form name="streetViewSearch">
 		<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views" style="width:300px">
 	</form>
 	<div id="pano"></div>
-	<div id="map"></div>
-	
-    <script src="index.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLnOmmYb49qkdP8R5OpZaMdPpIJ-WymDE&callback=initMap&libraries=places" async defer></script>
+	<div id="map"></div> -->
+
 </body>
 </html>

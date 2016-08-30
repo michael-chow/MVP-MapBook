@@ -1,5 +1,9 @@
-<form name="streetViewSearch">
-	<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views" style="width:300px">
-</form>
-<div id="pano"></div>
-<div id="map"></div>
+<div ng-controller="searchCtrl" ng-mousemove='listen()'>
+	<form name="streetViewSearch">
+		<input name="search" id="searchLocation" class="controls" placeholder="Search Street Views" style="width:300px">
+	</form>
+	<button ng-click='save()'>Save</button>
+	<h3>{{ loc.des }}</h3>
+	<div id="pano"></div>
+	<div id="map"></div>
+</div>
