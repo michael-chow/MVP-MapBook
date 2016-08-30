@@ -1,7 +1,10 @@
 <div>
-	<div ng-repeat="location in collection" ng-click="loadMap(location)">
-		<div>{{location.title}}</div>
-	</div>
-	<div id="pano"></div>
 	<div id="map"></div>
+	<div id="pano"></div>
+	<form name="filterForm">
+		<input name="filter" ng-model="filter" id="filter" placeholder="Filter">
+	</form>
+	<div id="collection">
+		<li ng-repeat="location in collection | filter: filter | orderBy:'title' " ng-click="loadMap(location)" id="location">{{location.title}}</li>
+	</div>
 </div>

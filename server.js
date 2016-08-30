@@ -5,14 +5,13 @@ var Db = require('./db');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/mapbook');
+mongoose.connect('mongodb://localhost/mapbk');
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/save', function(req, res) {
-	console.log('BODY>>, ', req.body);
 	var newCollection = new Db({
 		title: req.body.title,
 		des: req.body.des,

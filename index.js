@@ -5,7 +5,9 @@ var initPos = {lat: 37.869260, lng: -122.254811};
 function initMap() {
   // Create a map object and specify the DOM element for display.
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15
+    zoom: 15,
+    streetViewControl: false,
+    mapTypeId: 'terrain'
   });
   map.setCenter(initPos);
   //create marker for the map
@@ -78,7 +80,9 @@ function initMap() {
 
 function loadMap (obj) {
   var map_load = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16
+    zoom: 16,
+    streetViewControl: false,
+    mapTypeId: 'terrain'
   });
   map_load.setCenter(obj);
   //create marker for the map

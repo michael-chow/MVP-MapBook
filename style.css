@@ -1,11 +1,13 @@
 html, body {
 	font-family: Arial;
+	font-size: 12px;
+	color: white;
 	height: 80%; 
 	margin: 0; 
 	padding: 0; 
 }
-
-h2 {
+p {
+	font-size: 24px;
 	margin: 0;
 	color: white;
 }
@@ -15,14 +17,16 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 #header {
 	padding : 10px;
 	background-color: grey
 }
 
-
 #pano {
-
 	height: 600px; 
 	width: 75%;
 	margin: 15px;
@@ -69,6 +73,55 @@ a {
 }
 
 #title {
+    display: block;
+    position: absolute;
+    top: 400px;
+    right: 25px;
+    margin: 0 auto;
+    width: 300px;
+    height: 29px;
+    color: grey;
+    font-size: 14px;
+    text-indent: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver;
+    z-index: 100;
+    opacity: 0.8
+}
+
+#save {
+	display: block;
+    position: absolute;
+	top: 403px;
+	right: 30px;
+    margin: 0 auto;
+	width: 50px;
+    height: 27px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    color: white;
+    background-color: silver;
+    z-index: 101
+}
+
+#collection {
+	display: block;
+    position: absolute;
+	top: 450px;
+	left: 78%;
+    color: grey;
+}
+
+#location {
+	color: grey;
+	font-size: 14px;
+}
+
+#filter {
     display: block;
     position: absolute;
     top: 400px;
